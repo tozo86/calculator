@@ -13,7 +13,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 === 0) {
-        return "ERROR. Division by zero..."
+        return "zero divider"
     }
     else {
         return num1 / num2;
@@ -52,6 +52,7 @@ let opButtons = document.querySelectorAll('.btnOp');
 let delButton = document.querySelector('#btn_del');
 let acButton = document.querySelector('#btn_ac');
 let signButton = document.querySelector('#btn_sign');
+let decimalButton = document.querySelector('.btnDecimal');
 
 //calc variables
 let number1;
@@ -64,13 +65,30 @@ numButtons.forEach((button) => {    //number buttons events
         if (result!= undefined) {   //delete output after op and click (+-*/)
             output.textContent = '';
             result = undefined;
+            console.log('result off');
         }
+        if (button.id==='.' && output.textContent===''){
+            output.textContent='0'+button.id;
+            decimalButton.disabled = true;   //decmialButton disable after click
+            console.log('decimalButton +0 and off');
+        }
+        else if (button.id ==='.'){
+            decimalButton.disabled = true;
+            output.textContent += button.id;
+            console.log('decimalButton off');
+        }
+        else {
         output.textContent += button.id;
+            console.log('add num...')
+    }
     })
 });
 
 delButton.addEventListener('click', () => {     //DEL button events
     output.textContent = output.textContent.slice(0, -1);
+    if (!output.textContent.includes('.')){
+        decimalButton.disabled = false;  
+    }
 });
 
 
@@ -79,6 +97,7 @@ acButton.addEventListener('click', () => {      //AC button events
     number1 = undefined;
     number2 = undefined;
     result = undefined;
+    decimalButton.disabled = false;  
 })
 
 signButton.addEventListener('click', () => {
@@ -93,21 +112,26 @@ signButton.addEventListener('click', () => {
 opButtons.forEach((opbutton) => {           //Operation buttons event
     opbutton.addEventListener('click', () => {
 
-
-        if (number1 === undefined) {
+        if (number1 === undefined && output.textContent===''){
+            
+        }
+        else if (number1 === undefined) {
             number1 = Number(output.textContent);
             result=number1;
             output.textContent = '';
+            decimalButton.disabled = false;  
             opsign = opbutton.textContent;
         }
         else {
 
             if (opsign === '=') {
                 opsign = opbutton.textContent;
+                
             }
             else {
                 if (result != undefined) {
                     opsign = opbutton.textContent;
+                    
 
                 }
                 else {
@@ -117,8 +141,10 @@ opButtons.forEach((opbutton) => {           //Operation buttons event
                     output.textContent = result;
                     number1 = result;
                     number2 = undefined;
+                     
                 }
             }
+            decimalButton.disabled = false;  
         }
 
     })
