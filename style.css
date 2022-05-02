@@ -1,0 +1,90 @@
+@font-face {
+    font-family: DS-DigitalBold;
+    src: url(DS-DigitalBold700.ttf);
+}
+* {
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #87d87d;
+}
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bolder;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+.calc-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #e3deda;
+    padding: 70px 10px 50px 10px;
+    border-radius: 20px;
+    
+}
+.output {
+    background-color: #bfbfa2;
+    
+    height: 100px;
+    border: 10px solid black;
+    border-radius: 10px;
+    font-family: DS-DigitalBold;
+    font-size: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #c5b8af;
+    border-radius: 10px;
+    
+    
+}
+button {
+    margin-top: 8px;
+    min-width: 80px;
+    min-height: 80px;
+    background-color: #f5f0eb;
+    font-size: 28px;
+    font-weight: bolder;
+    border: 5px solid #e4d8ca;
+    border-radius: 10px;
+    box-shadow: 1px 1px #8c847d;
+    color: #b25221;
+}
+.btnAction {
+    background-color: #eab071;
+    border-color: #e39744;
+    color: #f3e5d5;
+}
+.btnNum, .btnAction{
+    font-size: 40px;
+}
+#btn_ac, #btn_del {
+    background-color: #db6429;
+    border-color: #b14f1e;
+    color: #f3e5d5;
+    
+}
+#btn_equal {
+    background-color: #a49daa;
+    border-color: #8a8192;
+}
+.btn_zero {
+    min-width: 170px;
+}
+
