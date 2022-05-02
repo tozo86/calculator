@@ -123,3 +123,5 @@ opButtons.forEach((opbutton) => {           //Operation buttons event
 
     })
 });
+
+document.addEventListener("touchstart", function() {},false);    //for active button
