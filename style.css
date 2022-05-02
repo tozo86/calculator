@@ -63,8 +63,11 @@ button {
     font-weight: bolder;
     border: 5px solid #e4d8ca;
     border-radius: 10px;
-    box-shadow: 1px 1px #8c847d;
+    box-shadow: 1px 2px #8c847d;
     color: #b25221;
+}
+button:active{
+    box-shadow: 0;
 }
 .btnAction {
     background-color: #eab071;
